@@ -3,18 +3,15 @@ class Solution {
         int i=0;
         int j=numbers.length-1;
         int answer[]={0,0};
-        while(i<=j){
-            if(i==j){
-                    i++;
-                    j=numbers.length-1;
-                }
-            if(numbers[i]+numbers[j]!=target){
-                j--;
-                
-            }else{
-                int []ans={i+1,j+1};
-                return ans;
-            }
+        while(i<j){
+           int sum=numbers[i]+numbers[j];
+           if(sum==target){
+            return new int[]{i+1,j+1};
+           }else if(sum>target){
+            j--;
+           }else{
+            i++;
+           }
         }
         return answer;
     }
